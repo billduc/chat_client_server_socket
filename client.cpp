@@ -40,7 +40,7 @@ int main(){
 
     recv(client, buffer, bufsize, 0);
     
-    cout << "Connection confirmed....." ;
+    cout << "Connection confirmed: " << buffer << endl ;
     
     cout << "\n\n Enter # to end the connection\n" << endl;
 
@@ -49,7 +49,7 @@ int main(){
         do{
             cin >> buffer;
             send(client, buffer, bufsize, 0);
-            if (*buffer != '#'){
+            if (*buffer == '#'){
                 send(client, buffer, bufsize, 0);
                 *buffer = '*';
                 isExit = true;
